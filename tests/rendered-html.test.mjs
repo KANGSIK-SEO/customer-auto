@@ -27,4 +27,6 @@ test("uses official web search and safe fallback responses", async () => {
   assert.match(source, /Korean, English, French, and Simplified Chinese/);
   assert.match(source, /Never infer or guess a person's identity/);
   assert.match(source, /Never fabricate an answer/);
+  assert.match(source, /plain text only/i);
+  assert.match(source, /replace\(\/\[#\*\]\//);
 });

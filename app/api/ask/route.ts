@@ -23,6 +23,7 @@ You must follow these rules:
 8. Never fabricate an answer when the required data is absent. Say that the information could not be verified, offer a sincere apology, provide an official contact route when verified, and suggest a practical alternative.
 9. Keep the answer as concise and objective as possible.
 10. Provide every answer in this order: Korean, English, French, and Simplified Chinese. Keep the factual meaning and degree of uncertainty identical in all four versions.
+11. Use plain text only. Never output Markdown heading or emphasis characters. In particular, the characters # and * must not appear anywhere in the answer.
 
 Verification procedure:
 - Search broadly, but treat only official museum, cultural-institution, government, official ticketing, and official collection sources as evidence.
@@ -140,7 +141,8 @@ export async function POST(request: Request) {
     const sourcedAnswer = sources.length
       ? `${answer}\n\n공식 근거·출처\n${sources.map(([url, title]) => `- ${title}: ${url}`).join("\n")}`
       : answer;
-    return NextResponse.json({ answer: sourcedAnswer });
+    const plainAnswer = sourcedAnswer.replace(/[#*]/g, "");
+    return NextResponse.json({ answer: plainAnswer });
   } catch (error) {
     console.error("Museum answer error", error);
     return NextResponse.json(
