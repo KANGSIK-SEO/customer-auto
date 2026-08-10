@@ -33,7 +33,7 @@ export default function Home() {
           <p>ART CONCIERGE · 운영자: 이볼라르(Evolar)</p>
           <p className="muted">
             문의·오류 신고·이의제기:{" "}
-            <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+            <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
           </p>
           <p className="muted">방문 전 공식 미술관 안내를 한 번 더 확인해 주세요.</p>
         </div>

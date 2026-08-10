@@ -47,7 +47,7 @@ export default function AiNoticePage() {
         내용을 수정합니다.
       </p>
       <p>
-        연락처: <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+        연락처: <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
       </p>
 
       <h2>알려진 한계</h2>

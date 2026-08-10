@@ -96,7 +96,7 @@ export function MuseumAsk({ suggestions }: Props) {
               아닙니다. 사실과 다르거나 오래된 내용이 포함될 수 있으니, 방문 전
               반드시 해당 기관에 다시 확인해 주세요. 답변에 오류가 있거나
               이의를 제기하고 싶다면{" "}
-              <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+              <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
               으로 알려 주세요.
             </p>
           )}

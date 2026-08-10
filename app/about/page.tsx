@@ -20,7 +20,7 @@ export default function AboutPage() {
       <ul>
         <li>서비스명: 아트 컨시어지 (ART CONCIERGE)</li>
         <li>운영자: 이볼라르(Evolar) · 대표 서강식</li>
-        <li>연락처: <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a></li>
+        <li>연락처: <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a></li>
         <li>사업자 등록 정보는 위 연락처로 문의하시면 안내해 드립니다.</li>
       </ul>
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
         <li>필요한 경우 답변 로직이나 안내 문구를 수정합니다.</li>
       </ol>
       <p>
-        접수처: <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+        접수처: <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
       </p>
 
       <h2>개인정보</h2>

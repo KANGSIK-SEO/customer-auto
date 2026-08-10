@@ -52,7 +52,7 @@ export default function PrivacyPage() {
         있으시면 아래 연락처로 알려 주시면 확인 후 답변드립니다.
       </p>
       <p>
-        연락처: <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+        연락처: <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
       </p>
 
       <h2>방침의 변경</h2>
