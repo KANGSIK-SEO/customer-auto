@@ -12,6 +12,8 @@ test("contains the Korean museum concierge experience", async () => {
   assert.match(page, /미술관에 물어보기/);
   assert.match(page, /온라인 감상이 가능한 미술관 알려줘/);
   assert.match(client, /20~40초/);
+  assert.match(client, /useState\(""\)/);
+  assert.match(client, /asked \|\| loading \|\| error/);
   assert.doesNotMatch(page, /codex-preview|Your site is taking shape/);
 });
 
