@@ -22,6 +22,8 @@ test("uses official web search and safe fallback responses", async () => {
   assert.match(source, /web_search/);
   assert.match(source, /discoveryIntent/);
   assert.match(source, /진심으로 죄송합니다/);
-  assert.match(source, /담당자 연락처/);
-  assert.match(source, /대체 답안/);
+  assert.match(source, /world-class museum curator/);
+  assert.match(source, /Korean, English, French, and Simplified Chinese/);
+  assert.match(source, /Never infer or guess a person's identity/);
+  assert.match(source, /Never fabricate an answer/);
 });
