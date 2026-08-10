@@ -27,7 +27,7 @@ test("discloses AI use, operator identity, and policy links (OECD compliance)", 
   ]);
 
   // OECD Consumer Protection in E-commerce: operator identification + complaint route
-  assert.match(page, /이볼라르\(Evolar\)/);
+  assert.match(page, /이볼라르\(evollard\)/);
   assert.match(page, /mailto:evollardevollard@gmail\.com/);
   assert.match(about, /운영자 정보/);
   assert.match(about, /불만 및 분쟁 해결 절차/);

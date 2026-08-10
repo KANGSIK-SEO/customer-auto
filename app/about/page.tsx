@@ -19,7 +19,7 @@ export default function AboutPage() {
       <h2>운영자 정보</h2>
       <ul>
         <li>서비스명: 아트 컨시어지 (ART CONCIERGE)</li>
-        <li>운영자: 이볼라르(Evolar) · 대표 서강식</li>
+        <li>운영자: 이볼라르(evollard) · 대표 서강식</li>
         <li>연락처: <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a></li>
         <li>사업자 등록 정보는 위 연락처로 문의하시면 안내해 드립니다.</li>
       </ul>

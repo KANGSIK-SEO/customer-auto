@@ -30,7 +30,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-meta">
-          <p>ART CONCIERGE · 운영자: 이볼라르(Evolar)</p>
+          <p>ART CONCIERGE · 운영자: 이볼라르(evollard)</p>
           <p className="muted">
             문의·오류 신고·이의제기:{" "}
             <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>

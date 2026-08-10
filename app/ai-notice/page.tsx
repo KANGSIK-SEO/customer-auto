@@ -60,7 +60,7 @@ export default function AiNoticePage() {
 
       <h2>책임 소재</h2>
       <p>
-        본 서비스는 이볼라르(Evolar)가 운영합니다. 시스템 설계, 답변 품질, 이 안내
+        본 서비스는 이볼라르(evollard)가 운영합니다. 시스템 설계, 답변 품질, 이 안내
         페이지의 정확성에 대한 책임은 운영자에게 있습니다.
       </p>
     </main>
