@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root { --paper: #f3eee4; --ink: #171512; --muted: #5f594f; --red: #cb1f2b; }
+:root { --paper: #f3eee4; --ink: #171512; --muted: #5f594f; --red: #cb1f2b; --font-sans: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif; --font-serif: "AppleMyungjo", "Noto Serif KR", Georgia, serif; }
 * { box-sizing: border-box; }
 html { background: var(--paper); scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-serif), Georgia, serif; }

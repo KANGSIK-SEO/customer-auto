@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
-
-const sans = Noto_Sans_KR({ variable: "--font-sans", subsets: ["latin"] });
-const serif = Noto_Serif_KR({ variable: "--font-serif", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "미술관에 물어보기 | Art Concierge",
@@ -13,7 +9,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
-      <body className={`${sans.variable} ${serif.variable}`}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
