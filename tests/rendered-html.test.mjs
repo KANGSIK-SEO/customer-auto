@@ -30,6 +30,8 @@ test("uses official web search and safe fallback responses", async () => {
   assert.match(source, /plain text only/i);
   assert.match(source, /culturally natural language/);
   assert.match(source, /D’après les informations officielles/);
+  assert.match(source, /Veuillez indiquer/);
+  assert.match(source, /Pourriez-vous, s’il vous plaît/);
   assert.match(source, /根据目前查询到的官方信息/);
   assert.match(source, /replace\(\/\[#\*\]\//);
 });
