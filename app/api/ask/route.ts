@@ -88,7 +88,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-5-mini",
+        model: "gpt-5.6-luna",
         instructions: SYSTEM_INSTRUCTIONS,
         input: question,
         tools: [{ type: "web_search", search_context_size: "high" }],

@@ -20,6 +20,7 @@ test("contains the Korean museum concierge experience", async () => {
 test("uses official web search and safe fallback responses", async () => {
   const source = await readFile(new URL("app/api/ask/route.ts", root), "utf8");
   assert.match(source, /web_search/);
+  assert.match(source, /gpt-5\.6-luna/);
   assert.match(source, /discoveryIntent/);
   assert.match(source, /진심으로 죄송합니다/);
   assert.match(source, /world-class museum curator/);
