@@ -1,0 +1,13 @@
+entrypoint = "package.json"
+modules = ["nodejs-20"]
+run = "npm run dev -- --hostname 0.0.0.0"
+hidden = [".next", "node_modules", ".dev.vars", ".env"]
+
+[deployment]
+build = ["sh", "-c", "npm ci && npm run build"]
+run = ["sh", "-c", "npm run start -- --hostname 0.0.0.0"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 3000
+externalPort = 80

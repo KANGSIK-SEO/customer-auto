@@ -1,4 +1,17 @@
-# vinext-starter
+# Customer Auto — 미술관 방문 안내
+
+공식 미술관 안내를 웹 검색해 관람 시간, 입장료, 온라인 감상, 접근성,
+촬영 규정 등을 근거와 함께 답하는 한국어 AI 컨시어지입니다.
+
+## Replit에서 실행
+
+1. 이 GitHub 저장소를 Replit로 가져옵니다.
+2. Replit의 Secrets에 `OPENAI_API_KEY`를 등록합니다.
+3. Run으로 확인한 뒤 Deployments에서 배포합니다.
+
+API 키는 저장소에 포함되어 있지 않습니다.
+
+## Local development
 
 A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
