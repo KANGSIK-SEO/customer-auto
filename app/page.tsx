@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MuseumAsk } from "./museum-ask";
 
 const suggestions = [
@@ -28,8 +29,19 @@ export default function Home() {
       <MuseumAsk suggestions={suggestions} />
 
       <footer>
-        <p>ART CONCIERGE</p>
-        <p>방문 전 공식 미술관 안내를 한 번 더 확인해 주세요.</p>
+        <div className="footer-meta">
+          <p>ART CONCIERGE · 운영자: 이볼라르(Evolar)</p>
+          <p className="muted">
+            문의·오류 신고·이의제기:{" "}
+            <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+          </p>
+          <p className="muted">방문 전 공식 미술관 안내를 한 번 더 확인해 주세요.</p>
+        </div>
+        <nav className="footer-links" aria-label="정책 및 서비스 안내">
+          <Link href="/ai-notice">AI 시스템 안내</Link>
+          <Link href="/privacy">개인정보처리방침</Link>
+          <Link href="/about">서비스 소개·이용안내</Link>
+        </nav>
       </footer>
     </main>
   );

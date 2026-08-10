@@ -17,6 +17,37 @@ test("contains the Korean museum concierge experience", async () => {
   assert.doesNotMatch(page, /codex-preview|Your site is taking shape/);
 });
 
+test("discloses AI use, operator identity, and policy links (OECD compliance)", async () => {
+  const [page, client, aiNotice, privacy, about] = await Promise.all([
+    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/museum-ask.tsx", root), "utf8"),
+    readFile(new URL("app/ai-notice/page.tsx", root), "utf8"),
+    readFile(new URL("app/privacy/page.tsx", root), "utf8"),
+    readFile(new URL("app/about/page.tsx", root), "utf8"),
+  ]);
+
+  // OECD Consumer Protection in E-commerce: operator identification + complaint route
+  assert.match(page, /이볼라르\(Evolar\)/);
+  assert.match(page, /mailto:kangsikseoul@gmail\.com/);
+  assert.match(about, /운영자 정보/);
+  assert.match(about, /불만 및 분쟁 해결 절차/);
+
+  // OECD AI Principles: transparency that answers are AI-generated + human escalation path
+  assert.match(client, /생성형 AI가 작성한 참고용 정보/);
+  assert.match(aiNotice, /OECD AI 원칙/);
+  assert.match(aiNotice, /사람의 관여와 이의제기/);
+
+  // OECD Privacy Guidelines: purpose specification, third-party processor disclosure, retention
+  assert.match(client, /OpenAI\(미국\)로 전송/);
+  assert.match(privacy, /OECD 개인정보보호 가이드라인/);
+  assert.match(privacy, /자체 서버나 데이터베이스에 저장하지/);
+
+  // Policy pages are linked from the main experience
+  assert.match(page, /\/ai-notice/);
+  assert.match(page, /\/privacy/);
+  assert.match(page, /\/about/);
+});
+
 test("uses official web search and safe fallback responses", async () => {
   const source = await readFile(new URL("app/api/ask/route.ts", root), "utf8");
   assert.match(source, /web_search/);

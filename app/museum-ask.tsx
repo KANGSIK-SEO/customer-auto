@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 
 type Props = { suggestions: string[] };
 
@@ -64,6 +65,14 @@ export function MuseumAsk({ suggestions }: Props) {
         </button>
       </form>
 
+      <p className="input-notice">
+        이 서비스는 AI가 공식 자료를 검색해 답변을 생성합니다. 입력하신 질문은 답변
+        생성을 위해 OpenAI(미국)로 전송되어 처리되며, 별도 계정이나 서버 데이터베이스에
+        저장하지 않습니다. 이름, 연락처 등 개인정보는 입력하지 말아 주세요. 자세한 내용은{" "}
+        <Link href="/privacy">개인정보처리방침</Link>과{" "}
+        <Link href="/ai-notice">AI 시스템 안내</Link>를 참고하세요.
+      </p>
+
       <div className="suggestions" aria-label="질문 예시">
         {suggestions.map((suggestion) => (
           <button key={suggestion} type="button" onClick={() => void ask(suggestion)}>
@@ -81,6 +90,16 @@ export function MuseumAsk({ suggestions }: Props) {
             <p className="answer-copy">{answer}</p>
           ) : null}
           {error && <p className="error" role="alert">{error}</p>}
+          {answer && !loading && (
+            <p className="ai-disclaimer">
+              이 답변은 생성형 AI가 작성한 참고용 정보이며 미술관의 공식 답변이
+              아닙니다. 사실과 다르거나 오래된 내용이 포함될 수 있으니, 방문 전
+              반드시 해당 기관에 다시 확인해 주세요. 답변에 오류가 있거나
+              이의를 제기하고 싶다면{" "}
+              <a href="mailto:kangsikseoul@gmail.com">kangsikseoul@gmail.com</a>
+              으로 알려 주세요.
+            </p>
+          )}
         </article>
       )}
     </section>
