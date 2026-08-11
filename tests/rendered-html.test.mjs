@@ -115,3 +115,13 @@ test("returns and renders the official ontology evidence used for an answer", as
   assert.match(uiSource, /target="_blank"/);
   assert.match(uiSource, /dateTime=\{item\.verifiedOn\}/);
 });
+
+test("includes an online health check for official ontology sources", async () => {
+  const checker = await readFile(new URL("scripts/check-ontology-sources.mjs", root), "utf8");
+  const packageJson = JSON.parse(await readFile(new URL("package.json", root), "utf8"));
+  assert.equal(packageJson.scripts["check:ontology-sources"], "node scripts/check-ontology-sources.mjs");
+  assert.match(checker, /AbortSignal\.timeout\(8_000\)/);
+  assert.match(checker, /\[404, 410\]/);
+  assert.match(checker, /process\.exitCode = 1/);
+  assert.match(checker, /new Set\(ontology\.records\.map/);
+});

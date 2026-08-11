@@ -11,6 +11,7 @@
     "start": "next start",
     "test": "node --test tests/rendered-html.test.mjs",
     "validate:ontology": "node scripts/validate-ontology.mjs",
+    "check:ontology-sources": "node scripts/check-ontology-sources.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
