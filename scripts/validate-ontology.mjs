@@ -15,6 +15,13 @@ const officialHosts = [
   "tokiomarine-nichido.co.jp", "axa.mx", "geico.com",
   "nrma.com.au", "intact.ca", "credit-agricole.fr", "hdfcergo.com", "kbinsure.co.kr",
   "hsbc.com.hk", "maybank2u.com.my", "bancosantander.es", "bangkokbank.com",
+  "arabbank.jo", "ajig.com", "halykbank.kz", "basel.kz", "bankmed.com.lb",
+  "libano-suisse.com", "insurancepasargad.com", "sukoon.com", "bsp.com.pg",
+  "towerinsurance.com.fj", "bis.org",
+];
+const officialSourcePrefixes = [
+  "https://t.me/s/BankMelli_ir",
+  "https://t.me/s/bankmelli_ir",
 ];
 
 const errors = [];
@@ -38,7 +45,8 @@ for (const [index, record] of ontology.records.entries()) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(record.verifiedOn)) errors.push(`${record.id}: invalid verifiedOn`);
   try {
     const host = new URL(record.sourceUrl).hostname.replace(/^www\./, "");
-    if (!officialHosts.some((official) => host === official || host.endsWith(`.${official}`))) {
+    if (!officialHosts.some((official) => host === official || host.endsWith(`.${official}`))
+      && !officialSourcePrefixes.some((prefix) => record.sourceUrl.startsWith(prefix))) {
       errors.push(`${record.id}: source host is not in official registry: ${host}`);
     }
   } catch {
@@ -49,7 +57,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 80) errors.push(`expected at least 80 records, found ${ontology.records.length}`);
+if (ontology.records.length < 93) errors.push(`expected at least 93 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
