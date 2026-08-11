@@ -3,8 +3,10 @@ import { MuseumAsk } from "./museum-ask";
 
 const suggestions = [
   "온라인 감상이 가능한 미술관 알려줘",
-  "메트로폴리탄 입장료 얼마야?",
-  "국립중앙박물관 월요일에도 열어?",
+  "DBS에서 사기 피해가 의심되면 어떻게 해?",
+  "보험금 청구는 어디에 접수해?",
+  "유엔은 개인에게 장학금을 주나요?",
+  "브라질 난민 신청은 비용이 드나요?",
 ];
 
 export default function Home() {
@@ -18,11 +20,11 @@ export default function Home() {
       </header>
 
       <section id="top" className="hero" aria-labelledby="page-title">
-        <p className="eyebrow">MUSEUM VISITOR GUIDE</p>
-        <h1 id="page-title">미술관에 물어보기</h1>
+        <p className="eyebrow">WORLDWIDE EVIDENCE DESK</p>
+        <h1 id="page-title">글로벌 고객상담에 물어보기</h1>
         <p className="intro">
-          관람 시간, 입장료, 예약, 환불, 접근성, 사진 촬영 등 방문 안내를
-          물어보세요. 모르는 내용은 추측하지 않고 공식 확인을 안내해 드립니다.
+          미술관 방문, 은행 사기·거래, 보험 청구, UN·UNHCR 시민 안내를 물어보세요.
+          공식 FAQ와 출처가 있는 온톨로지 자료만 근거로 삼고, 모르는 내용은 추측하지 않습니다.
         </p>
       </section>
 
@@ -35,7 +37,7 @@ export default function Home() {
             문의·오류 신고·이의제기:{" "}
             <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
           </p>
-          <p className="muted">방문 전 공식 미술관 안내를 한 번 더 확인해 주세요.</p>
+          <p className="muted">중요한 결정 전 해당 기관의 최신 공식 안내를 한 번 더 확인해 주세요.</p>
         </div>
         <nav className="footer-links" aria-label="정책 및 서비스 안내">
           <Link href="/ai-notice">AI 시스템 안내</Link>

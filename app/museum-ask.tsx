@@ -47,16 +47,16 @@ export function MuseumAsk({ suggestions }: Props) {
   }
 
   return (
-    <section className="ask-section" aria-label="미술관 방문 안내 질문">
+    <section className="ask-section" aria-label="글로벌 고객상담 질문">
       <form className="ask-form" onSubmit={submit}>
         <label className="sr-only" htmlFor="museum-question">
-          미술관 방문 질문
+          고객상담 질문
         </label>
         <input
           id="museum-question"
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
-          placeholder="예: 메트로폴리탄 입장료 얼마야?"
+          placeholder="예: 승인하지 않은 카드 거래는 어떻게 신고해?"
           autoComplete="off"
           maxLength={500}
         />
@@ -92,8 +92,9 @@ export function MuseumAsk({ suggestions }: Props) {
           {error && <p className="error" role="alert">{error}</p>}
           {answer && !loading && (
             <p className="ai-disclaimer">
-              이 답변은 생성형 AI가 작성한 참고용 정보이며 미술관의 공식 답변이
-              아닙니다. 사실과 다르거나 오래된 내용이 포함될 수 있으니, 방문 전
+              이 답변은 생성형 AI가 공식 출처와 온톨로지 자료를 바탕으로 작성한 참고용
+              정보이며 해당 기관의 공식 답변이나 금융·보험·법률 자문이 아닙니다.
+              사실과 다르거나 오래된 내용이 포함될 수 있으니 중요한 결정 전
               반드시 해당 기관에 다시 확인해 주세요. 답변에 오류가 있거나
               이의를 제기하고 싶다면{" "}
               <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>

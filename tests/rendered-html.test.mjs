@@ -4,13 +4,15 @@ import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 
-test("contains the Korean museum concierge experience", async () => {
+test("contains the Korean worldwide customer-service experience", async () => {
   const [page, client] = await Promise.all([
     readFile(new URL("app/page.tsx", root), "utf8"),
     readFile(new URL("app/museum-ask.tsx", root), "utf8"),
   ]);
-  assert.match(page, /미술관에 물어보기/);
+  assert.match(page, /글로벌 고객상담에 물어보기/);
   assert.match(page, /온라인 감상이 가능한 미술관 알려줘/);
+  assert.match(page, /DBS에서 사기 피해/);
+  assert.match(page, /브라질 난민 신청/);
   assert.match(client, /20~40초/);
   assert.match(client, /useState\(""\)/);
   assert.match(client, /asked \|\| loading \|\| error/);
@@ -33,7 +35,7 @@ test("discloses AI use, operator identity, and policy links (OECD compliance)", 
   assert.match(about, /불만 및 분쟁 해결 절차/);
 
   // OECD AI Principles: transparency that answers are AI-generated + human escalation path
-  assert.match(client, /생성형 AI가 작성한 참고용 정보/);
+  assert.match(client, /생성형 AI가 공식 출처와 온톨로지 자료를 바탕으로 작성한 참고용/);
   assert.match(aiNotice, /OECD AI 원칙/);
   assert.match(aiNotice, /사람의 관여와 이의제기/);
 
@@ -65,4 +67,21 @@ test("uses official web search and safe fallback responses", async () => {
   assert.match(source, /Pourriez-vous, s’il vous plaît/);
   assert.match(source, /根据目前查询到的官方信息/);
   assert.match(source, /replace\(\/\[#\*\]\//);
+  assert.match(source, /retrieveOntology/);
+  assert.match(source, /ONTOLOGY EVIDENCE/);
+});
+
+test("ships a sourced worldwide banking, insurance, and UN ontology", async () => {
+  const raw = await readFile(new URL("data/customer-service-ontology.json", root), "utf8");
+  const ontology = JSON.parse(raw);
+  const records = ontology.records;
+  assert.ok(records.length >= 12);
+  assert.deepEqual(new Set(records.map((record) => record.domain)),
+    new Set(["banking", "insurance", "united_nations"]));
+  assert.ok(new Set(records.map((record) => record.region)).size >= 6);
+  for (const record of records) {
+    assert.match(record.sourceUrl, /^https:\/\//);
+    assert.match(record.verifiedOn, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(record.institution && record.question && record.answer && record.action);
+  }
 });
