@@ -26,6 +26,7 @@ const officialHosts = [
   "pkobp.pl", "pzu.pl", "cgd.pt", "fidelidade.pt", "dnb.no", "gjensidige.no",
   "ubs.com", "axa.ch", "bnpparibasfortis.be", "axa.be", "sparkasse.at", "allianz.at",
   "danskebank.dk", "tryg.dk", "nordea.fi", "op.fi", "aib.ie", "allianz.ie",
+  "alpha.gr", "generali.gr", "csas.cz", "allianz.cz", "erstebank.hu", "allianz.hu",
 ];
 const officialSourcePrefixes = [
   "https://t.me/s/BankMelli_ir",
@@ -65,7 +66,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 144) errors.push(`expected at least 144 records, found ${ontology.records.length}`);
+if (ontology.records.length < 153) errors.push(`expected at least 153 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
