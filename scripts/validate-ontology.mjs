@@ -13,6 +13,7 @@ const officialHosts = [
   "gtbank.com", "kcbgroup.com", "anz.co.nz", "bdo.com.ph", "britam.com",
   "leadway.com", "aia.co.nz", "axa.com.ph",
   "tokiomarine-nichido.co.jp", "axa.mx", "geico.com",
+  "nrma.com.au", "intact.ca", "credit-agricole.fr", "hdfcergo.com", "kbinsure.co.kr",
 ];
 
 const errors = [];
@@ -47,7 +48,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 62) errors.push(`expected at least 62 records, found ${ontology.records.length}`);
+if (ontology.records.length < 72) errors.push(`expected at least 72 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
