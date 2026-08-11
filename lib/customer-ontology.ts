@@ -37,6 +37,9 @@ export function retrieveOntology(question: string, limit = 4): OntologyRecord[] 
         if (normalized.includes(normalize(intent))) score += 8;
       }
       if (normalized.includes(normalize(record.institution))) score += 10;
+      if (normalized.includes(normalize(record.country))) score += 6;
+      const institutionLead = tokens(record.institution)[0];
+      if (institutionLead && institutionLead.length > 2 && queryTokens.has(institutionLead)) score += 5;
       for (const token of queryTokens) {
         if (searchable.includes(token)) score += 1;
       }

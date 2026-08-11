@@ -10,6 +10,8 @@ const officialHosts = [
   "rbcroyalbank.com", "bbva.mx", "kbstar.com", "allianz.fr", "aia.com.hk",
   "deutsche-bank.de", "smbc.co.jp", "bbva.com.ar", "itau.com.br", "allianz.de",
   "portoseguro.com.br", "zurich.com.ar",
+  "gtbank.com", "kcbgroup.com", "anz.co.nz", "bdo.com.ph", "britam.com",
+  "leadway.com", "aia.co.nz", "axa.com.ph",
 ];
 
 const errors = [];
@@ -44,9 +46,9 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 40) errors.push(`expected at least 40 records, found ${ontology.records.length}`);
-if (regions.size < 8) errors.push(`expected at least 8 regions, found ${regions.size}`);
-if (countries.size < 23) errors.push(`expected at least 23 countries or global jurisdictions, found ${countries.size}`);
+if (ontology.records.length < 50) errors.push(`expected at least 50 records, found ${ontology.records.length}`);
+if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
+if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
 if (errors.length) {
   console.error(errors.join("\n"));
