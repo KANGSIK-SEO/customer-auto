@@ -3156,6 +3156,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-gh-standard-chartered-card-block",
+      "domain": "banking",
+      "institution": "Standard Chartered Ghana",
+      "country": "Ghana",
+      "region": "Africa",
+      "intents": ["Ghana lost card", "Standard Chartered card block", "card replacement", "Ghana card security", "가나 은행", "카드 분실"],
+      "question": "How can a Standard Chartered Ghana customer block and replace a lost or stolen card?",
+      "answer": "The bank's official digital-banking guidance says to use Service Requests, choose Block/Replace Card, select the card and reason, optionally request replacement, complete OTP confirmation and submit; it states the card is then blocked.",
+      "action": "Use a verified Standard Chartered channel promptly and confirm replacement fees, permanent blocking and any unauthorised-transaction procedure directly with the bank.",
+      "contact": "Standard Chartered Ghana digital banking Service Requests",
+      "sourceUrl": "https://www.sc.com/gh/digital-banking/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-gh-nic-complaint",
+      "domain": "insurance",
+      "institution": "National Insurance Commission Ghana",
+      "country": "Ghana",
+      "region": "Africa",
+      "intents": ["Ghana insurance complaint", "NIC Ghana", "insurer complaint escalation", "insurance consumer rights", "가나 보험", "보험 민원"],
+      "question": "Where can a Ghana policyholder escalate an insurance complaint?",
+      "answer": "The National Insurance Commission's official consumer-protection page says it resolves complaints and can help when an insurer does not put things right. It also provides links to verify licensed entities and file a complaint.",
+      "action": "First confirm the policy and complaint history with the insurer, then use the NIC's official complaint route and confirm the required documents and response process directly with NIC Ghana.",
+      "contact": "NIC Ghana: +233 302 238300 / 1; info@nic.gov.gh",
+      "sourceUrl": "https://nic.gov.gh/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-gh-unhcr-country-support",
+      "domain": "united_nations",
+      "institution": "UNHCR Ghana",
+      "country": "Ghana",
+      "region": "Africa",
+      "intents": ["Ghana refugee support", "UNHCR Ghana", "Ghana Refugee Board", "난민 지원 가나", "가나 UNHCR", "UN 상담"],
+      "question": "Which organizations coordinate protection and assistance for refugees and asylum-seekers in Ghana?",
+      "answer": "UNHCR's official Ghana country page says UNHCR works closely with the Ghana Refugee Board to coordinate protection and assistance for refugees and asylum-seekers across the country.",
+      "action": "Use the current UNHCR Ghana and Ghana Refugee Board channels and confirm eligibility, registration, documentation and available services directly with the responsible office.",
+      "contact": "UNHCR Ghana country office and Ghana Refugee Board through the official UNHCR Ghana page",
+      "sourceUrl": "https://www.unhcr.org/where-we-work/countries/ghana",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
