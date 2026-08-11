@@ -3198,6 +3198,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-bw-standard-chartered-card-block",
+      "domain": "banking",
+      "institution": "Standard Chartered Botswana",
+      "country": "Botswana",
+      "region": "Africa",
+      "intents": ["Botswana lost card", "Standard Chartered Botswana card block", "card replacement", "Botswana banking", "보츠와나 은행", "카드 분실"],
+      "question": "How can a Standard Chartered Botswana customer block and replace a lost or stolen card?",
+      "answer": "The bank's official Botswana digital-banking guidance provides a Card Block/Replacement service for instantly blocking a lost or stolen card, selecting the reason and optionally requesting replacement.",
+      "action": "Use a verified Standard Chartered channel promptly and confirm replacement fees, permanent blocking and any unauthorised-transaction procedure directly with the bank.",
+      "contact": "Standard Chartered Botswana digital banking Card Block/Replacement service",
+      "sourceUrl": "https://www.sc.com/bw/digital-banking/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-bw-bic-claim-notification",
+      "domain": "insurance",
+      "institution": "Botswana Insurance Company",
+      "country": "Botswana",
+      "region": "Africa",
+      "intents": ["Botswana insurance claim", "BIC claim notification", "claim reporting", "Botswana insurance", "보츠와나 보험", "보험금 청구"],
+      "question": "Where does Botswana Insurance Company direct customers to start a claim?",
+      "answer": "The insurer's official website provides a Claim Notification route for customers to begin reporting an insured event.",
+      "action": "Use the official Claim Notification route and confirm the policy-specific deadline, documents, inspection and settlement process directly with Botswana Insurance Company.",
+      "contact": "Botswana Insurance Company official Claim Notification route",
+      "sourceUrl": "https://bic.co.bw/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-bw-unhcr-asylum-application",
+      "domain": "united_nations",
+      "institution": "UNHCR Botswana",
+      "country": "Botswana",
+      "region": "Africa",
+      "intents": ["Botswana asylum application", "Refugee Advisory Committee", "UNHCR Botswana", "Dukwi", "보츠와나 망명", "보츠와나 UNHCR"],
+      "question": "Who receives and processes asylum applications in Botswana?",
+      "answer": "UNHCR Botswana's official guidance says the Government of Botswana, through the Refugee Advisory Committee, receives and processes asylum applications. It says a person may declare the intention at a border post, police station or Ministry of Justice office in Dukwi.",
+      "action": "Use a competent government route and confirm the current application, interview, accommodation and documentation procedure directly with the Refugee Advisory Committee or UNHCR Botswana.",
+      "contact": "Botswana Refugee Advisory Committee; UNHCR Botswana Help site",
+      "sourceUrl": "https://help.unhcr.org/botswana/services/asylum/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
