@@ -75,10 +75,13 @@ test("ships a sourced worldwide banking, insurance, and UN ontology", async () =
   const raw = await readFile(new URL("data/customer-service-ontology.json", root), "utf8");
   const ontology = JSON.parse(raw);
   const records = ontology.records;
-  assert.ok(records.length >= 12);
+  assert.ok(records.length >= 24);
   assert.deepEqual(new Set(records.map((record) => record.domain)),
     new Set(["banking", "insurance", "united_nations"]));
   assert.ok(new Set(records.map((record) => record.region)).size >= 6);
+  for (const domain of ["banking", "insurance", "united_nations"]) {
+    assert.ok(records.filter((record) => record.domain === domain).length >= 6);
+  }
   for (const record of records) {
     assert.match(record.sourceUrl, /^https:\/\//);
     assert.match(record.verifiedOn, /^\d{4}-\d{2}-\d{2}$/);
