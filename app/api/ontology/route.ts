@@ -21,7 +21,7 @@ export async function GET(request: Request) {
       : ontologyRecords;
     return NextResponse.json({
       filters: { region: region || null },
-      ...buildOntologyCoverage(selected),
+      ...buildOntologyCoverage(selected, ontologyRecords),
     });
   }
 

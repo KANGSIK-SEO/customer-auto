@@ -142,10 +142,16 @@ test("includes an online health check for official ontology sources", async () =
 test("reports worldwide coverage gaps without overstating completeness", async () => {
   const coverageSource = await readFile(new URL("lib/ontology-coverage.ts", root), "utf8");
   const routeSource = await readFile(new URL("app/api/ontology/route.ts", root), "utf8");
+  const target = JSON.parse(await readFile(new URL("data/un-member-states.json", root), "utf8"));
+  assert.equal(target.countries.length, 193);
+  assert.equal(new Set(target.countries).size, 193);
+  assert.match(target.sourceUrl, /^https:\/\/www\.un\.org\//);
   assert.match(coverageSource, /missingDomains/);
   assert.match(coverageSource, /completeJurisdictionCount/);
   assert.match(coverageSource, /domainJurisdictionCounts/);
-  assert.match(coverageSource, /not a list of every country or institution worldwide/);
+  assert.match(coverageSource, /worldwideTargetCoverage/);
+  assert.match(coverageSource, /uncoveredCountries/);
+  assert.match(coverageSource, /193 UN Member States/);
   assert.match(routeSource, /view === "coverage"/);
   assert.match(routeSource, /buildOntologyCoverage/);
   assert.match(routeSource, /coverageUsage/);
