@@ -89,3 +89,16 @@ test("ships a sourced worldwide banking, insurance, and UN ontology", async () =
     assert.ok(record.institution && record.question && record.answer && record.action);
   }
 });
+
+test("exposes an ontology graph with typed nodes and evidence relations", async () => {
+  const graphSource = await readFile(new URL("lib/ontology-graph.ts", root), "utf8");
+  const routeSource = await readFile(new URL("app/api/ontology/route.ts", root), "utf8");
+  assert.match(graphSource, /type: "evidence"/);
+  assert.match(graphSource, /belongs_to_domain/);
+  assert.match(graphSource, /addresses_intent/);
+  assert.match(graphSource, /supported_by/);
+  assert.match(graphSource, /published_by/);
+  assert.match(routeSource, /view === "graph"/);
+  assert.match(routeSource, /buildOntologyGraph/);
+  assert.match(routeSource, /country/);
+});

@@ -1,12 +1,19 @@
 {
   "@context": {
+    "@vocab": "https://schema.org/",
+    "evollard": "https://customer-auto-eight.vercel.app/ontology/",
+    "id": "@id",
     "domain": "https://schema.org/category",
     "institution": "https://schema.org/Organization",
     "country": "https://schema.org/Country",
+    "region": "https://schema.org/containedInPlace",
+    "intents": "evollard:customerIntent",
     "question": "https://schema.org/question",
     "answer": "https://schema.org/acceptedAnswer",
+    "action": "https://schema.org/potentialAction",
     "sourceUrl": "https://schema.org/url",
-    "contact": "https://schema.org/contactPoint"
+    "contact": "https://schema.org/contactPoint",
+    "verifiedOn": "https://schema.org/dateModified"
   },
   "name": "Worldwide Customer Service Evidence Ontology",
   "version": "2026-08-11",

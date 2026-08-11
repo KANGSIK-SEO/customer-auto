@@ -1,6 +1,8 @@
 import ontology from "../data/customer-service-ontology.json";
 
-export type OntologyRecord = (typeof ontology.records)[number] & { score: number };
+export type OntologyEvidence = (typeof ontology.records)[number];
+export type OntologyRecord = OntologyEvidence & { score: number };
+export const ontologyRecords: readonly OntologyEvidence[] = ontology.records;
 
 const domainTerms: Record<string, string[]> = {
   banking: ["bank", "account", "card", "transaction", "fraud", "scam", "phishing", "은행", "계좌", "카드", "거래", "사기", "피싱"],
