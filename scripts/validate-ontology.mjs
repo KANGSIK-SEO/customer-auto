@@ -32,6 +32,7 @@ const officialHosts = [
   "citadele.lv", "if.lv", "seb.lt", "islandsbanki.is", "vis.is",
   "bgl.lu", "lalux.lu", "hsbc.com.mt", "gasanmamo.com", "bankofcyprus.com", "eurolife.com.cy",
   "bancaintesa.rs", "generali.rs", "ckb.me", "lovcen-osiguranje.me", "nlb.mk", "triglav.mk",
+  "raiffeisen.al", "sigal.com.al", "raiffeisenbank.ba", "uniqa.ba", "maib.md", "bnm.md",
 ];
 const officialSourcePrefixes = [
   "https://t.me/s/BankMelli_ir",
@@ -71,7 +72,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 198) errors.push(`expected at least 198 records, found ${ontology.records.length}`);
+if (ontology.records.length < 207) errors.push(`expected at least 207 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
