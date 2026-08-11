@@ -5,6 +5,7 @@ import {
   retrieveOntology,
 } from "../../../lib/customer-ontology";
 import { buildOntologyGraph } from "../../../lib/ontology-graph";
+import { buildOntologyCoverage } from "../../../lib/ontology-coverage";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -12,6 +13,17 @@ export async function GET(request: Request) {
   const view = (searchParams.get("view") ?? "").trim();
   const domain = (searchParams.get("domain") ?? "").trim();
   const country = (searchParams.get("country") ?? "").trim();
+  const region = (searchParams.get("region") ?? "").trim();
+
+  if (view === "coverage") {
+    const selected = region
+      ? ontologyRecords.filter((record) => record.region.toLocaleLowerCase() === region.toLocaleLowerCase())
+      : ontologyRecords;
+    return NextResponse.json({
+      filters: { region: region || null },
+      ...buildOntologyCoverage(selected),
+    });
+  }
 
   if (view === "graph") {
     const validDomains = new Set(["banking", "insurance", "united_nations"]);
@@ -35,6 +47,7 @@ export async function GET(request: Request) {
       domains: ["banking", "insurance", "united_nations"],
       usage: "/api/ontology?q=your+question",
       graphUsage: "/api/ontology?view=graph&domain=banking&country=Canada",
+      coverageUsage: "/api/ontology?view=coverage&region=Africa",
     });
   }
 

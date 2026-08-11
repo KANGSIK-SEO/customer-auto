@@ -125,3 +125,15 @@ test("includes an online health check for official ontology sources", async () =
   assert.match(checker, /process\.exitCode = 1/);
   assert.match(checker, /new Set\(ontology\.records\.map/);
 });
+
+test("reports worldwide coverage gaps without overstating completeness", async () => {
+  const coverageSource = await readFile(new URL("lib/ontology-coverage.ts", root), "utf8");
+  const routeSource = await readFile(new URL("app/api/ontology/route.ts", root), "utf8");
+  assert.match(coverageSource, /missingDomains/);
+  assert.match(coverageSource, /completeJurisdictionCount/);
+  assert.match(coverageSource, /domainJurisdictionCounts/);
+  assert.match(coverageSource, /not a list of every country or institution worldwide/);
+  assert.match(routeSource, /view === "coverage"/);
+  assert.match(routeSource, /buildOntologyCoverage/);
+  assert.match(routeSource, /coverageUsage/);
+});
