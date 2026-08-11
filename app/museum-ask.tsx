@@ -5,10 +5,28 @@ import Link from "next/link";
 
 type Props = { suggestions: string[] };
 
+type Evidence = {
+  id: string;
+  domain: "banking" | "insurance" | "united_nations";
+  institution: string;
+  country: string;
+  question: string;
+  sourceUrl: string;
+  verifiedOn: string;
+  relevanceScore: number;
+};
+
+const domainLabels: Record<Evidence["domain"], string> = {
+  banking: "은행",
+  insurance: "보험",
+  united_nations: "UN 시민지원",
+};
+
 export function MuseumAsk({ suggestions }: Props) {
   const [question, setQuestion] = useState("");
   const [asked, setAsked] = useState("");
   const [answer, setAnswer] = useState("");
+  const [evidence, setEvidence] = useState<Evidence[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -19,6 +37,8 @@ export function MuseumAsk({ suggestions }: Props) {
     setLoading(true);
     setError("");
     setAsked(nextQuestion);
+    setAnswer("");
+    setEvidence([]);
 
     try {
       const response = await fetch("/api/ask", {
@@ -26,11 +46,16 @@ export function MuseumAsk({ suggestions }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: nextQuestion }),
       });
-      const data = (await response.json()) as { answer?: string; error?: string };
+      const data = (await response.json()) as {
+        answer?: string;
+        evidence?: Evidence[];
+        error?: string;
+      };
       if (!response.ok || !data.answer) {
         throw new Error(data.error || "답변을 불러오지 못했습니다.");
       }
       setAnswer(data.answer);
+      setEvidence(data.evidence ?? []);
       setQuestion("");
     } catch (caught) {
       setError(
@@ -87,7 +112,33 @@ export function MuseumAsk({ suggestions }: Props) {
           {loading ? (
             <p className="loading">공식 사이트와 규정을 끝까지 검색하고 있습니다. 답변까지 약 20~40초 걸릴 수 있습니다…</p>
           ) : answer ? (
-            <p className="answer-copy">{answer}</p>
+            <>
+              <p className="answer-copy">{answer}</p>
+              {evidence.length > 0 && (
+                <section className="evidence-panel" aria-labelledby="evidence-heading">
+                  <h2 id="evidence-heading">이 답변에 사용된 온톨로지 근거</h2>
+                  <p className="evidence-intro">
+                    아래 항목은 질문과 연결된 기관 공식 자료입니다. 중요한 내용은 원문에서 다시 확인해 주세요.
+                  </p>
+                  <ul className="evidence-list">
+                    {evidence.map((item) => (
+                      <li key={item.id}>
+                        <div className="evidence-meta">
+                          <span>{domainLabels[item.domain]}</span>
+                          <span>{item.country}</span>
+                          <time dateTime={item.verifiedOn}>확인 {item.verifiedOn}</time>
+                        </div>
+                        <strong>{item.institution}</strong>
+                        <p>{item.question}</p>
+                        <a href={item.sourceUrl} target="_blank" rel="noreferrer">
+                          기관 공식 원문 확인
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+            </>
           ) : null}
           {error && <p className="error" role="alert">{error}</p>}
           {answer && !loading && (

@@ -73,11 +73,22 @@ export async function POST(request: Request) {
   }
 
   const ontologyRecords = retrieveOntology(question);
+  const evidence = ontologyRecords.map((record) => ({
+    id: record.id,
+    domain: record.domain,
+    institution: record.institution,
+    country: record.country,
+    question: record.question,
+    sourceUrl: record.sourceUrl,
+    verifiedOn: record.verifiedOn,
+    relevanceScore: record.score,
+  }));
 
   if (!ontologyRecords.length && needsMuseumName(question)) {
     return NextResponse.json({
       answer:
         "한국어\n정확한 미술관을 특정하지 못해 진심으로 죄송합니다. 온라인 관람, 입장료, 촬영 규정과 연락처는 기관과 지점마다 다르므로 해당 기관에 확인하시기를 권합니다. 미술관의 정확한 이름과 도시를 알려주시면 공식 규정·FAQ·온라인 컬렉션·문의 페이지에 근거해 정중히 확인해 드리겠습니다.\n\nEnglish\nI’m sorry, but I cannot identify the museum from the question yet. Online viewing, admission, photography policies, and contact details vary by institution and branch, so I recommend confirming them with the museum. If you share its exact name and city, I’ll gladly check the official policies, FAQ, online collection, and contact page for you.\n\nFrançais\nJe suis désolé, mais votre question ne me permet pas encore d’identifier précisément le musée concerné. Les modalités de visite en ligne, les tarifs, les règles concernant les photographies et les coordonnées peuvent varier selon l’établissement et le site ; je vous conseille donc de les confirmer directement auprès du musée. Pourriez-vous, s’il vous plaît, m’indiquer le nom exact du musée ainsi que la ville ? Je consulterai alors avec plaisir ses règles officielles, sa FAQ, sa collection en ligne et sa page de contact.\n\n简体中文\n您好，很抱歉，仅凭目前的问题还无法确定您所指的具体博物馆。在线参观、票价、摄影规定和联系方式可能因机构及分馆而有所不同，建议您再向相关博物馆确认。如果您愿意提供博物馆的准确名称和所在城市，我很乐意根据其官方规定、常见问题、在线馆藏及联系页面，为您进一步核实。",
+      evidence: [],
     });
   }
 
@@ -152,7 +163,7 @@ export async function POST(request: Request) {
       ? `${answer}\n\n공식 근거·출처\n${sources.map(([url, title]) => `- ${title}: ${url}`).join("\n")}`
       : answer;
     const plainAnswer = sourcedAnswer.replace(/[#*]/g, "");
-    return NextResponse.json({ answer: plainAnswer });
+    return NextResponse.json({ answer: plainAnswer, evidence });
   } catch (error) {
     console.error("Museum answer error", error);
     return NextResponse.json(

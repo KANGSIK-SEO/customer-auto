@@ -102,3 +102,16 @@ test("exposes an ontology graph with typed nodes and evidence relations", async 
   assert.match(routeSource, /buildOntologyGraph/);
   assert.match(routeSource, /country/);
 });
+
+test("returns and renders the official ontology evidence used for an answer", async () => {
+  const apiSource = await readFile(new URL("app/api/ask/route.ts", root), "utf8");
+  const uiSource = await readFile(new URL("app/museum-ask.tsx", root), "utf8");
+  assert.match(apiSource, /sourceUrl: record\.sourceUrl/);
+  assert.match(apiSource, /verifiedOn: record\.verifiedOn/);
+  assert.match(apiSource, /relevanceScore: record\.score/);
+  assert.match(apiSource, /answer: plainAnswer, evidence/);
+  assert.match(uiSource, /이 답변에 사용된 온톨로지 근거/);
+  assert.match(uiSource, /기관 공식 원문 확인/);
+  assert.match(uiSource, /target="_blank"/);
+  assert.match(uiSource, /dateTime=\{item\.verifiedOn\}/);
+});
