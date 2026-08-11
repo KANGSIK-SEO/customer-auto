@@ -21,6 +21,8 @@ const officialHosts = [
   "icbc.com.cn", "pingan.com", "bca.co.id", "prudential.co.id",
   "alrajhibank.com.sa", "tawuniya.com", "cibeg.com", "allianz.com.eg",
   "isbank.com.tr", "allianz.com.tr",
+  "intesasanpaolo.com", "generali.it", "abnamro.nl", "allianz.nl",
+  "swedbank.se", "folksam.se",
 ];
 const officialSourcePrefixes = [
   "https://t.me/s/BankMelli_ir",
@@ -60,7 +62,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 108) errors.push(`expected at least 108 records, found ${ontology.records.length}`);
+if (ontology.records.length < 117) errors.push(`expected at least 117 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
