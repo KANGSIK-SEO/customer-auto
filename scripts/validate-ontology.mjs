@@ -7,12 +7,14 @@ const officialHosts = [
   "bankofamerica.com", "dbs.com.sg", "commbank.com.au", "hsbc.co.uk", "icicibank.com",
   "standardbank.co.za", "emiratesnbd.com", "allianz.com", "sanlam.co.za", "mapfre.com",
   "axa.co.uk", "prudential.com.sg", "tokiomarine.com", "un.org", "unhcr.org", "ohchr.org", "unv.org",
+  "rbcroyalbank.com", "bbva.mx", "kbstar.com", "allianz.fr", "aia.com.hk",
 ];
 
 const errors = [];
 const ids = new Set();
 const counts = Object.fromEntries([...allowedDomains].map((domain) => [domain, 0]));
 const regions = new Set();
+const countries = new Set();
 
 for (const [index, record] of ontology.records.entries()) {
   for (const field of required) {
@@ -25,6 +27,7 @@ for (const [index, record] of ontology.records.entries()) {
   if (!allowedDomains.has(record.domain)) errors.push(`${record.id}: invalid domain ${record.domain}`);
   else counts[record.domain] += 1;
   regions.add(record.region);
+  countries.add(record.country);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(record.verifiedOn)) errors.push(`${record.id}: invalid verifiedOn`);
   try {
     const host = new URL(record.sourceUrl).hostname.replace(/^www\./, "");
@@ -39,11 +42,13 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (regions.size < 7) errors.push(`expected at least 7 regions, found ${regions.size}`);
+if (ontology.records.length < 30) errors.push(`expected at least 30 records, found ${ontology.records.length}`);
+if (regions.size < 8) errors.push(`expected at least 8 regions, found ${regions.size}`);
+if (countries.size < 18) errors.push(`expected at least 18 countries or global jurisdictions, found ${countries.size}`);
 
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ records: ontology.records.length, domains: counts, regions: [...regions].sort(), uniqueSources: new Set(ontology.records.map((record) => record.sourceUrl)).size }, null, 2));
+console.log(JSON.stringify({ records: ontology.records.length, domains: counts, countries: [...countries].sort(), regions: [...regions].sort(), uniqueSources: new Set(ontology.records.map((record) => record.sourceUrl)).size }, null, 2));

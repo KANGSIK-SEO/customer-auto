@@ -61,4 +61,12 @@ export const ontologyMetadata = {
   name: ontology.name,
   version: ontology.version,
   recordCount: ontology.records.length,
+  countries: [...new Set(ontology.records.map((record) => record.country))].sort(),
+  regions: [...new Set(ontology.records.map((record) => record.region))].sort(),
+  domainCounts: Object.fromEntries(
+    Object.keys(domainTerms).map((domain) => [
+      domain,
+      ontology.records.filter((record) => record.domain === domain).length,
+    ]),
+  ),
 };
