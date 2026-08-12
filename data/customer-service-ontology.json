@@ -3786,6 +3786,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-tz-bot-consumer-complaint",
+      "domain": "banking",
+      "institution": "Bank of Tanzania",
+      "country": "Tanzania",
+      "region": "Africa",
+      "intents": ["Tanzania bank complaint", "Bank of Tanzania consumer protection", "financial complaint Tanzania", "탄자니아 은행", "금융 민원"],
+      "question": "What should a financial consumer do before lodging a complaint with the Bank of Tanzania?",
+      "answer": "The Bank of Tanzania's official consumer-protection page says a consumer must first exhaust the financial institution's internal complaint-resolution process. If dissatisfied or without a response within 14 days, the consumer may lodge a complaint with the Bank within the stated period.",
+      "action": "Keep the institution's complaint reference and confirm the applicable deadlines and submission requirements directly with the Bank of Tanzania or the financial institution.",
+      "contact": "Bank of Tanzania Financial Consumer Complaints Resolution Desk through the official consumer-protection page",
+      "sourceUrl": "https://www.bot.go.tz/DFDI/ConsumerProtection?lang=en",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-tz-nic-claim-contact",
+      "domain": "insurance",
+      "institution": "National Insurance Corporation Tanzania",
+      "country": "Tanzania",
+      "region": "Africa",
+      "intents": ["Tanzania insurance claim", "NIC Tanzania claims", "insurance claim contact Tanzania", "탄자니아 보험", "보험금 청구"],
+      "question": "How does NIC Tanzania direct customers to report an insurance claim?",
+      "answer": "NIC Tanzania's official claims page says that in the event of a claim customers should use the free telephone 0800110041, email customercare@nictanzania.co.tz, use NIC Kiganjani or visit the nearest branch.",
+      "action": "Use the official NIC Tanzania claims route and confirm the policy-specific documents, reporting deadline and assessment process directly with NIC Tanzania.",
+      "contact": "NIC Tanzania: 0800110041; customercare@nictanzania.co.tz; nearest branch",
+      "sourceUrl": "https://www.nicinsurance.co.tz/claims",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-tz-unhcr-contact",
+      "domain": "united_nations",
+      "institution": "UNHCR United Republic of Tanzania",
+      "country": "Tanzania",
+      "region": "Africa",
+      "intents": ["Tanzania UNHCR", "refugee support Tanzania", "UNHCR Tanzania contact", "탄자니아 UNHCR", "난민 지원"],
+      "question": "Where does UNHCR direct people seeking information about its Tanzania operation?",
+      "answer": "UNHCR's official United Republic of Tanzania country page says people seeking information about the operation should contact UNHCR Headquarters in Geneva, Switzerland.",
+      "action": "Use the current official UNHCR contact route and confirm the responsible office, registration procedure and available services directly with UNHCR.",
+      "contact": "UNHCR Headquarters, Geneva: +41 22 739 8111; official Tanzania operation page",
+      "sourceUrl": "https://www.unhcr.org/where-we-work/countries/united-republic-tanzania",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
