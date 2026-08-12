@@ -3828,6 +3828,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-ao-bfa-customer-complaint",
+      "domain": "banking",
+      "institution": "Banco de Fomento Angola",
+      "country": "Angola",
+      "region": "Africa",
+      "intents": ["Angola bank complaint", "BFA customer support", "bank complaint Angola", "앙골라 은행", "은행 민원"],
+      "question": "Where does Banco de Fomento Angola direct customers to manage a complaint?",
+      "answer": "BFA's official complaints-management document describes an internal complaints process and identifies an escalation route to the National Bank of Angola for complaints when applicable.",
+      "action": "Use BFA's official complaint channel first and confirm the applicable escalation route, deadlines and required evidence directly with BFA or the National Bank of Angola.",
+      "contact": "BFA official service line and complaint-management channels",
+      "sourceUrl": "https://www.bfa.ao/media/4628/complaints-management.pdf",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-ao-arseg-insurance-faq",
+      "domain": "insurance",
+      "institution": "ARSEG Angola",
+      "country": "Angola",
+      "region": "Africa",
+      "intents": ["Angola insurance FAQ", "ARSEG consumer information", "insurance contract Angola", "앙골라 보험", "보험 계약"],
+      "question": "How does Angola's insurance regulator describe an insurance contract?",
+      "answer": "ARSEG's official consumer Q&A says an insurance contract is subscribed between the policyholder and insurer; in exchange for the premium, the insurer undertakes to indemnify the policyholder, insured or third parties for covered losses or provide capital or an annuity for covered personal events.",
+      "action": "Read the specific policy and confirm coverage, exclusions, claim notice and beneficiary procedures directly with the insurer or ARSEG before relying on this general explanation.",
+      "contact": "ARSEG official consumer education and supervisory channels",
+      "sourceUrl": "https://www.arseg.ao/consumidor/educacao-financeira/perguntas-e-respostas/seguros/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-ao-unhcr-contact",
+      "domain": "united_nations",
+      "institution": "UNHCR Angola",
+      "country": "Angola",
+      "region": "Africa",
+      "intents": ["Angola UNHCR contact", "refugee support Angola", "UNHCR Dundo", "앙골라 UNHCR", "난민 지원"],
+      "question": "How can people contact UNHCR in Angola?",
+      "answer": "UNHCR's official Angola country page lists the Representation in Luanda and the Dundo Field Office, including telephone +244 949 097 330 and official email routes for general and protection inquiries.",
+      "action": "Use the current official UNHCR Angola contact route and confirm registration, documentation, protection assistance and available services directly with UNHCR or the responsible Angolan authority.",
+      "contact": "UNHCR Angola: +244 949 097 330; official general and protection inquiry email routes",
+      "sourceUrl": "https://www.unhcr.org/uk/countries/angola",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
