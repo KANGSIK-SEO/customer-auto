@@ -3744,6 +3744,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-ug-uba-transaction-dispute",
+      "domain": "banking",
+      "institution": "UBA Uganda",
+      "country": "Uganda",
+      "region": "Africa",
+      "intents": ["Uganda bank dispute", "UBA Uganda FAQ", "transaction dispute Uganda", "우간다 은행", "거래 이의제기"],
+      "question": "How does UBA Uganda say a customer can dispute a transaction?",
+      "answer": "UBA Uganda's official FAQ says customers should call the Customer Fulfilment Center on 0800100030 or email cfcuganda@ubagroup.com to dispute a transaction.",
+      "action": "Use the verified UBA Uganda contact route and confirm identity checks, evidence requirements and resolution timelines directly with the bank.",
+      "contact": "UBA Uganda: 0800100030; cfcuganda@ubagroup.com",
+      "sourceUrl": "https://www.ubauganda.com/faqs/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-ug-nic-claim-faq",
+      "domain": "insurance",
+      "institution": "NIC Insurance Uganda",
+      "country": "Uganda",
+      "region": "Africa",
+      "intents": ["Uganda insurance claim", "NIC Insurance FAQ", "file claim Uganda", "우간다 보험", "보험금 청구"],
+      "question": "How does NIC Insurance Uganda direct customers to file a claim?",
+      "answer": "NIC Insurance Uganda's official FAQ states that customers asking how to file a claim should use its claims process and that its claims team will guide them.",
+      "action": "Use the official NIC Insurance claim route and confirm the policy-specific documents, deadlines and assessment process directly with NIC Insurance.",
+      "contact": "NIC Insurance Uganda official claims team and Kampala contact route",
+      "sourceUrl": "https://nic.co.ug/faq/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-ug-unhcr-frrm-contact",
+      "domain": "united_nations",
+      "institution": "UNHCR Uganda",
+      "country": "Uganda",
+      "region": "Africa",
+      "intents": ["Uganda UNHCR contact", "refugee assistance Uganda", "FRRM helpline", "우간다 UNHCR", "난민 지원"],
+      "question": "How can people contact UNHCR or partners for assistance in Uganda?",
+      "answer": "UNHCR Uganda's official contact page says the inter-agency Feedback, Referral and Resolution Mechanism can be reached on the toll-free helpline 0800 32 32 32 or by email, and that UNHCR and partner services are free.",
+      "action": "Use the official UNHCR Uganda helpline and confirm the relevant service, eligibility and referral route directly with UNHCR or its partners.",
+      "contact": "FRRM helpline: 0800 32 32 32; official UNHCR Uganda contact page",
+      "sourceUrl": "https://help.unhcr.org/uganda/topics/contact/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
