@@ -8070,6 +8070,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-ki-kfsa-role",
+      "domain": "banking",
+      "institution": "Kiribati Financial Supervisory Authority (KFSA)",
+      "country": "Kiribati",
+      "region": "Oceania",
+      "intents": ["Kiribati central bank regulator", "KFSA", "bank supervision Kiribati", "키리바시 은행", "은행 규제"],
+      "question": "Which body licenses and supervises banks in Kiribati?",
+      "answer": "The Kiribati Financial Supervisory Authority, established under the Financial Supervisory Authority Kiribati Act 2021 and the Kiribati Financial Institutions Act 2021, is an independent regulatory body responsible for the licensing, regulation and supervision of financial institutions including the commercial bank, Kiribati Provident Fund and Development Bank of Kiribati.",
+      "action": "Use the official KFSA route and confirm the responsible commercial bank, account or complaint procedure directly with KFSA or the relevant licensed institution in Kiribati.",
+      "contact": "Kiribati Financial Supervisory Authority official contact channels",
+      "sourceUrl": "https://www.kfsa.gov.ki/abuts.html",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-ki-kfsa-role",
+      "domain": "insurance",
+      "institution": "Kiribati Financial Supervisory Authority (KFSA)",
+      "country": "Kiribati",
+      "region": "Oceania",
+      "intents": ["Kiribati insurance regulator", "KFSA insurance", "insurance supervision Kiribati", "키리바시 보험", "보험 규제"],
+      "question": "Which body regulates insurance companies in Kiribati?",
+      "answer": "The Kiribati Financial Supervisory Authority oversees non-bank financial institutions, including insurance companies, credit unions and other financial service providers operating in and from within Kiribati, aiming to ensure a sound, stable and transparent financial system.",
+      "action": "Confirm the applicable insurance regulations, claim procedure and deadlines directly with the licensed insurer in Kiribati or KFSA before relying on this general description.",
+      "contact": "Kiribati Financial Supervisory Authority official contact channels",
+      "sourceUrl": "https://www.kfsa.gov.ki/abuts.html",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-ki-unhcr-canberra",
+      "domain": "united_nations",
+      "institution": "UNHCR Representation in Canberra",
+      "country": "Kiribati",
+      "region": "Oceania",
+      "intents": ["Kiribati UNHCR", "refugee support Kiribati", "UNHCR Pacific", "키리바시 UNHCR", "난민 지원"],
+      "question": "Which UNHCR office serves Kiribati and how can people reach it?",
+      "answer": "UNHCR's official Pacific page says its Canberra Representation serves 14 Pacific Island countries including Kiribati, that Kiribati is a Contracting State to the 1951 Refugee Convention and its 1967 Protocol, and that people can contact the Canberra office by email or mail at 14 Kendall Lane, Canberra ACT 2601, Australia, by appointment only.",
+      "action": "Use the current official UNHCR Pacific contact route and confirm registration, protection assistance and available services directly with UNHCR or the responsible Kiribati authority.",
+      "contact": "UNHCR Representation in Canberra: 14 Kendall Lane, Canberra ACT 2601, Australia (by appointment)",
+      "sourceUrl": "https://help.unhcr.org/pacific/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",

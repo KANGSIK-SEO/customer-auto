@@ -58,7 +58,7 @@ const officialHosts = [
   "nbrb.by", "minfin.gov.by", "cbr.ru", "boi.org.il", "gov.il", "cbi.iq", "insurancediwan.gov.iq",
   "bank.gov.ua", "cbm.gov.mm", "mopf.gov.mm", "cbl.gov.ly", "lisa.gov.ly", "cbos.gov.sd", "isa.gov.sd", "boss.gov.ss", "mofp.gov.ss",
   "dab.gov.af", "mof.gov.af", "centralbank.gov.so", "cb.gov.sy", "sisc.sy", "cby-ye.com", "moit.gov.ye",
-  "rma.org.bt", "bankingboard.gov.fm", "fsminsuranceboard.com",
+  "rma.org.bt", "bankingboard.gov.fm", "fsminsuranceboard.com", "kfsa.gov.ki",
 ];
 const officialSourcePrefixes = [
   "https://t.me/s/BankMelli_ir",
@@ -98,7 +98,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 576) errors.push(`expected at least 576 records, found ${ontology.records.length}`);
+if (ontology.records.length < 579) errors.push(`expected at least 579 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
