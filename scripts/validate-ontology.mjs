@@ -50,6 +50,7 @@ const officialHosts = [
   "bcb.gob.bo", "aps.gob.bo", "bcentral.cl", "cmfchile.cl", "bcu.gub.uy", "gub.uy", "bcp.gov.py",
   "nbkr.kg", "nbt.tj", "cbt.tm", "insurance.gov.tm", "cbu.uz", "napp.uz",
   "afa.ad", "fma-li.li", "acpr.banque-france.fr", "monentreprise.gouv.mc", "bcsm.sm",
+  "banrep.gov.co", "superfinanciera.gov.co", "bce.fin.ec", "supercias.gob.ec", "sbs.gob.pe", "bcv.org.ve", "sudeaseg.gob.ve",
 ];
 const officialSourcePrefixes = [
   "https://t.me/s/BankMelli_ir",
@@ -89,7 +90,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 468) errors.push(`expected at least 468 records, found ${ontology.records.length}`);
+if (ontology.records.length < 480) errors.push(`expected at least 480 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
