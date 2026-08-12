@@ -75,7 +75,7 @@ test("ships a sourced worldwide banking, insurance, and UN ontology", async () =
   const raw = await readFile(new URL("data/customer-service-ontology.json", root), "utf8");
   const ontology = JSON.parse(raw);
   const records = ontology.records;
-  assert.ok(records.length >= 318);
+  assert.ok(records.length >= 330);
   assert.deepEqual(new Set(records.map((record) => record.domain)),
     new Set(["banking", "insurance", "united_nations"]));
   assert.ok(new Set(records.map((record) => record.region)).size >= 9);
@@ -96,7 +96,8 @@ test("ships a sourced worldwide banking, insurance, and UN ontology", async () =
     "United States", "Saudi Arabia", "Egypt", "Turkey", "Italy", "Netherlands", "Sweden",
     "Poland", "Portugal", "Norway", "Switzerland", "Belgium", "Austria", "Denmark", "Finland", "Ireland", "Greece", "Czechia", "Hungary", "Romania", "Bulgaria", "Croatia", "Slovenia", "Slovakia", "Estonia", "Latvia", "Lithuania", "Iceland", "Luxembourg", "Malta", "Cyprus", "Serbia", "Montenegro", "North Macedonia", "Albania", "Bosnia and Herzegovina", "Moldova", "Armenia", "Georgia", "Azerbaijan", "Algeria", "Morocco", "Tunisia", "Ghana", "Botswana", "Eswatini", "Lesotho", "Madagascar", "Mauritius", "Seychelles", "Comoros", "Namibia", "Mozambique", "Malawi", "Zambia", "Zimbabwe", "Rwanda", "Uganda", "Tanzania", "Angola",
     "Cameroon", "Central African Republic", "Republic of the Congo", "Gabon", "Equatorial Guinea", "Chad",
-    "Benin", "Burkina Faso", "Cote d'Ivoire", "Guinea-Bissau", "Mali", "Niger", "Senegal", "Togo", "Global",
+    "Benin", "Burkina Faso", "Cote d'Ivoire", "Guinea-Bissau", "Mali", "Niger", "Senegal", "Togo",
+    "Guinea", "Sierra Leone", "Gambia", "Cabo Verde", "Global",
   ];
   for (const country of fullyCovered) {
     assert.deepEqual(

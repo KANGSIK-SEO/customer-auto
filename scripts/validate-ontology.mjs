@@ -37,6 +37,7 @@ const officialHosts = [
   "cpa-bank.dz", "caar.dz", "attijariwafabank.com", "wafaassurance.ma", "biat.com.tn", "star.com.tn",
   "sc.com", "nic.gov.gh", "bic.co.bw", "nedbank.co.sz", "fnb.co.ls", "esric.co.sz", "lnighollard.co.ls", "bmoi.mg", "tools.assurancesaro.mg", "bcpbank.mu", "mua.mu", "absa.sc", "sacos.sc", "snpsf.com", "amanassurances.com", "standardbank.com.na", "nedbank.com.na", "mozabanco.co.mz", "emose.co.mz", "nbs.mw", "nico-life.com", "zanaco.co.zm", "madison.co.zm", "stanbicbank.co.zw", "cellinsurance.co.zw", "bnr.rw", "ubauganda.com", "nic.co.ug", "bot.go.tz", "nicinsurance.co.tz", "bfa.ao", "arseg.ao",
   "beac.int", "cima-afrique.org", "bceao.int",
+  "bcrg-guinee.org", "bsl.gov.sl", "slicom.org.sl", "cbg.gm", "bcv.cv",
 ];
 const officialSourcePrefixes = [
   "https://t.me/s/BankMelli_ir",
@@ -76,7 +77,7 @@ for (const [index, record] of ontology.records.entries()) {
 for (const [domain, count] of Object.entries(counts)) {
   if (count < 6) errors.push(`${domain}: expected at least 6 records, found ${count}`);
 }
-if (ontology.records.length < 318) errors.push(`expected at least 318 records, found ${ontology.records.length}`);
+if (ontology.records.length < 330) errors.push(`expected at least 330 records, found ${ontology.records.length}`);
 if (regions.size < 9) errors.push(`expected at least 9 regions, found ${regions.size}`);
 if (countries.size < 28) errors.push(`expected at least 28 countries or global jurisdictions, found ${countries.size}`);
 
