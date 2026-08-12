@@ -3660,6 +3660,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-zw-stanbic-digital-faq",
+      "domain": "banking",
+      "institution": "Stanbic Bank Zimbabwe",
+      "country": "Zimbabwe",
+      "region": "Africa",
+      "intents": ["Zimbabwe digital banking", "Stanbic FAQ", "Zimbabwe bank login", "짐바브웨 은행", "디지털 뱅킹"],
+      "question": "Where does Stanbic Bank Zimbabwe direct customers for digital-banking help?",
+      "answer": "Stanbic Bank Zimbabwe's official Digital Channels FAQ directs customers to the Stanbic Bank Zimbabwe website, the sign-in area and Online Banking to access the digital-banking service.",
+      "action": "Use the verified Stanbic Bank Zimbabwe website and confirm enrolment, login, security and transaction procedures directly with the bank.",
+      "contact": "Stanbic Bank Zimbabwe official website and customer-support channels",
+      "sourceUrl": "https://www.stanbicbank.co.zw/static_file/zimbabwe/filedownloads/Amended%20FAQs%20Digital%20NPS%20Dec%202024.pdf",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-zw-cell-claim-faq",
+      "domain": "insurance",
+      "institution": "Cell Insurance Zimbabwe",
+      "country": "Zimbabwe",
+      "region": "Africa",
+      "intents": ["Zimbabwe insurance claim", "Cell Insurance FAQ", "accident claim Zimbabwe", "짐바브웨 보험", "보험 사고 접수"],
+      "question": "What does Cell Insurance Zimbabwe say a customer should do after an accident or incident?",
+      "answer": "Cell Insurance's official FAQ says customers should make sure they are safe, safeguard remaining property, call relevant authorities, immediately notify their local agent or Cell Insurance, and seek medical care if needed.",
+      "action": "Follow the policy and official claims route, then confirm notification deadlines, documents and assessment requirements directly with Cell Insurance.",
+      "contact": "Cell Insurance: 08677 200 200; contactcentre@cellinsurance.co.zw",
+      "sourceUrl": "https://www.cellinsurance.co.zw/faq/",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-zw-unhcr-contact",
+      "domain": "united_nations",
+      "institution": "UNHCR Zimbabwe",
+      "country": "Zimbabwe",
+      "region": "Africa",
+      "intents": ["Zimbabwe UNHCR", "Tongogara refugee support", "UNHCR Harare", "짐바브웨 UNHCR", "난민 지원"],
+      "question": "What support does UNHCR describe for refugees and asylum-seekers in Zimbabwe?",
+      "answer": "UNHCR's official Zimbabwe country page says it supports refugees and asylum-seekers with protection, essential services and durable solutions in urban areas and Tongogara Refugee Camp, with offices in Harare and Tongogara.",
+      "action": "Use the current official UNHCR Zimbabwe contact route and confirm registration, protection assistance and available services directly with UNHCR or the responsible Zimbabwean authority.",
+      "contact": "UNHCR Harare: +263 24 2338891; official UNHCR Zimbabwe contact route",
+      "sourceUrl": "https://www.unhcr.org/where-we-work/countries/zimbabwe",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
