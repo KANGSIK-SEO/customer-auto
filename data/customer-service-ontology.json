@@ -3702,6 +3702,48 @@
       "verifiedOn": "2026-08-12"
     },
     {
+      "id": "bank-rw-bnr-consumer-complaint",
+      "domain": "banking",
+      "institution": "National Bank of Rwanda",
+      "country": "Rwanda",
+      "region": "Africa",
+      "intents": ["Rwanda bank complaint", "BNR consumer protection", "Rwanda financial service complaint", "르완다 은행", "금융 민원"],
+      "question": "Where does Rwanda's central bank direct consumers for financial-service information and complaints?",
+      "answer": "The National Bank of Rwanda's official consumer materials provide consumer-protection information and identify BNR's official websites and WhatsApp channel (+250 791 700 721) as ways to access information.",
+      "action": "Use the official BNR consumer-protection route and confirm the responsible institution, complaint procedure and required evidence directly with BNR or the relevant bank.",
+      "contact": "BNR WhatsApp: +250 791 700 721; official BNR consumer-protection channels",
+      "sourceUrl": "https://www.bnr.rw/documents/FAQs_Insurance.pdf",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "insurance-rw-bnr-claim-faq",
+      "domain": "insurance",
+      "institution": "National Bank of Rwanda Insurance Consumer Information",
+      "country": "Rwanda",
+      "region": "Africa",
+      "intents": ["Rwanda insurance claim", "BNR insurance FAQ", "insurance complaint Rwanda", "르완다 보험", "보험금 청구"],
+      "question": "How does Rwanda's official insurance FAQ define an insurance claim?",
+      "answer": "The National Bank of Rwanda's official insurance FAQ defines a claim as a formal request made to an insurer when something covered by the policy occurs and provides consumer information about insurance terms.",
+      "action": "Read the applicable policy and confirm claim eligibility, notice deadlines, documents and appeal options directly with the insurer and BNR.",
+      "contact": "National Bank of Rwanda official insurance consumer-information channels",
+      "sourceUrl": "https://www.bnr.rw/documents/FAQs_Insurance.pdf",
+      "verifiedOn": "2026-08-12"
+    },
+    {
+      "id": "un-rw-unhcr-services",
+      "domain": "united_nations",
+      "institution": "UNHCR Rwanda",
+      "country": "Rwanda",
+      "region": "Africa",
+      "intents": ["Rwanda UNHCR", "refugee services Rwanda", "UNHCR registration Rwanda", "르완다 UNHCR", "난민 지원"],
+      "question": "What services does UNHCR describe for refugees and asylum-seekers in Rwanda?",
+      "answer": "UNHCR Rwanda's official information says it co-leads the refugee response with Rwanda's Ministry in charge of Emergency Management and works with partners to provide protection and assistance to refugees and asylum-seekers.",
+      "action": "Use the official UNHCR Rwanda services and registration channels and confirm eligibility, documentation and available assistance directly with UNHCR or the responsible Rwandan authority.",
+      "contact": "UNHCR Rwanda official services and registration channels",
+      "sourceUrl": "https://www.unhcr.org/rw/about-us",
+      "verifiedOn": "2026-08-12"
+    },
+    {
       "id": "bank-global-bis-fraud-warning",
       "domain": "banking",
       "institution": "Bank for International Settlements",
