@@ -75,7 +75,7 @@ test("ships a sourced worldwide banking, insurance, and UN ontology", async () =
   const raw = await readFile(new URL("data/customer-service-ontology.json", root), "utf8");
   const ontology = JSON.parse(raw);
   const records = ontology.records;
-  assert.ok(records.length >= 363);
+  assert.ok(records.length >= 375);
   assert.deepEqual(new Set(records.map((record) => record.domain)),
     new Set(["banking", "insurance", "united_nations"]));
   assert.ok(new Set(records.map((record) => record.region)).size >= 9);
@@ -100,6 +100,7 @@ test("ships a sourced worldwide banking, insurance, and UN ontology", async () =
     "Guinea", "Sierra Leone", "Gambia", "Cabo Verde",
     "Antigua and Barbuda", "Dominica", "Grenada", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines",
     "Bahamas", "Barbados", "Dominican Republic", "Haiti", "Jamaica",
+    "Kuwait", "Qatar", "Bahrain", "Oman",
     "Global",
   ];
   for (const country of fullyCovered) {
