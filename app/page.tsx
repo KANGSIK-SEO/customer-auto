@@ -6,7 +6,7 @@ import { MuseumAsk } from "./museum-ask";
 import { LANGUAGES, detectInitialLang, persistLang, translations, type Lang } from "./i18n";
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("ko");
+  const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
     setLang(detectInitialLang());

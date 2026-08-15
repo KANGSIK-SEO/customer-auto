@@ -246,10 +246,6 @@ export function detectInitialLang(): Lang {
   if (stored === "ko" || stored === "en" || stored === "fr" || stored === "zh") {
     return stored;
   }
-  const nav = window.navigator.language?.toLowerCase() ?? "";
-  if (nav.startsWith("fr")) return "fr";
-  if (nav.startsWith("zh")) return "zh";
-  if (nav.startsWith("ko")) return "ko";
   return "en";
 }
 
