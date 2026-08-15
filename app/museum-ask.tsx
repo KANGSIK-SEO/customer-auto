@@ -2,8 +2,9 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import type { Lang, Translations } from "./i18n";
 
-type Props = { suggestions: string[] };
+type Props = { lang: Lang; t: Translations };
 
 type Evidence = {
   id: string;
@@ -16,13 +17,7 @@ type Evidence = {
   relevanceScore: number;
 };
 
-const domainLabels: Record<Evidence["domain"], string> = {
-  banking: "은행",
-  insurance: "보험",
-  united_nations: "UN 시민지원",
-};
-
-export function MuseumAsk({ suggestions }: Props) {
+export function MuseumAsk({ lang, t }: Props) {
   const [question, setQuestion] = useState("");
   const [asked, setAsked] = useState("");
   const [answer, setAnswer] = useState("");
@@ -52,15 +47,19 @@ export function MuseumAsk({ suggestions }: Props) {
         error?: string;
       };
       if (!response.ok || !data.answer) {
-        throw new Error(data.error || "답변을 불러오지 못했습니다.");
+        const fallback =
+          response.status === 400
+            ? t.errorInput
+            : response.status === 503
+              ? t.errorConfig
+              : t.errorConnect;
+        throw new Error(fallback);
       }
       setAnswer(data.answer);
       setEvidence(data.evidence ?? []);
       setQuestion("");
     } catch (caught) {
-      setError(
-        caught instanceof Error ? caught.message : "잠시 후 다시 시도해 주세요.",
-      );
+      setError(caught instanceof Error ? caught.message : t.errorGeneric);
     } finally {
       setLoading(false);
     }
@@ -72,34 +71,35 @@ export function MuseumAsk({ suggestions }: Props) {
   }
 
   return (
-    <section className="ask-section" aria-label="글로벌 고객상담 질문">
+    <section className="ask-section" aria-label={t.askSectionAria}>
       <form className="ask-form" onSubmit={submit}>
         <label className="sr-only" htmlFor="museum-question">
-          고객상담 질문
+          {t.questionLabel}
         </label>
         <input
           id="museum-question"
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
-          placeholder="예: 승인하지 않은 카드 거래는 어떻게 신고해?"
+          placeholder={t.placeholder}
           autoComplete="off"
           maxLength={500}
+          lang={lang}
         />
         <button type="submit" disabled={loading || !question.trim()}>
-          {loading ? "확인 중" : "질문"}
+          {loading ? t.askButtonLoading : t.askButton}
         </button>
       </form>
 
       <p className="input-notice">
-        이 서비스는 AI가 공식 자료를 검색해 답변을 생성합니다. 입력하신 질문은 답변
-        생성을 위해 OpenAI(미국)로 전송되어 처리되며, 별도 계정이나 서버 데이터베이스에
-        저장하지 않습니다. 이름, 연락처 등 개인정보는 입력하지 말아 주세요. 자세한 내용은{" "}
-        <Link href="/privacy">개인정보처리방침</Link>과{" "}
-        <Link href="/ai-notice">AI 시스템 안내</Link>를 참고하세요.
+        {t.noticeBefore}
+        <Link href="/privacy">{t.privacyLabel}</Link>
+        {t.noticeMiddle}
+        <Link href="/ai-notice">{t.aiNoticeLabel}</Link>
+        {t.noticeAfter}
       </p>
 
-      <div className="suggestions" aria-label="질문 예시">
-        {suggestions.map((suggestion) => (
+      <div className="suggestions" aria-label={t.suggestionsAria}>
+        {t.suggestions.map((suggestion) => (
           <button key={suggestion} type="button" onClick={() => void ask(suggestion)}>
             {suggestion}
           </button>
@@ -108,30 +108,35 @@ export function MuseumAsk({ suggestions }: Props) {
 
       {(asked || loading || error) && (
         <article className="answer" aria-live="polite" aria-busy={loading}>
-          {asked && <p className="question"><strong>Q</strong><span>{asked}</span></p>}
+          {asked && (
+            <p className="question">
+              <strong>Q</strong>
+              <span>{asked}</span>
+            </p>
+          )}
           {loading ? (
-            <p className="loading">공식 사이트와 규정을 끝까지 검색하고 있습니다. 답변까지 약 20~40초 걸릴 수 있습니다…</p>
+            <p className="loading">{t.loading}</p>
           ) : answer ? (
             <>
               <p className="answer-copy">{answer}</p>
               {evidence.length > 0 && (
                 <section className="evidence-panel" aria-labelledby="evidence-heading">
-                  <h2 id="evidence-heading">이 답변에 사용된 온톨로지 근거</h2>
-                  <p className="evidence-intro">
-                    아래 항목은 질문과 연결된 기관 공식 자료입니다. 중요한 내용은 원문에서 다시 확인해 주세요.
-                  </p>
+                  <h2 id="evidence-heading">{t.evidenceHeading}</h2>
+                  <p className="evidence-intro">{t.evidenceIntro}</p>
                   <ul className="evidence-list">
                     {evidence.map((item) => (
                       <li key={item.id}>
                         <div className="evidence-meta">
-                          <span>{domainLabels[item.domain]}</span>
+                          <span>{t.domainLabels[item.domain]}</span>
                           <span>{item.country}</span>
-                          <time dateTime={item.verifiedOn}>확인 {item.verifiedOn}</time>
+                          <time dateTime={item.verifiedOn}>
+                            {t.verifiedPrefix} {item.verifiedOn}
+                          </time>
                         </div>
                         <strong>{item.institution}</strong>
                         <p>{item.question}</p>
                         <a href={item.sourceUrl} target="_blank" rel="noreferrer">
-                          기관 공식 원문 확인
+                          {t.sourceLink}
                         </a>
                       </li>
                     ))}
@@ -140,16 +145,16 @@ export function MuseumAsk({ suggestions }: Props) {
               )}
             </>
           ) : null}
-          {error && <p className="error" role="alert">{error}</p>}
+          {error && (
+            <p className="error" role="alert">
+              {error}
+            </p>
+          )}
           {answer && !loading && (
             <p className="ai-disclaimer">
-              이 답변은 생성형 AI가 공식 출처와 온톨로지 자료를 바탕으로 작성한 참고용
-              정보이며 해당 기관의 공식 답변이나 금융·보험·법률 자문이 아닙니다.
-              사실과 다르거나 오래된 내용이 포함될 수 있으니 중요한 결정 전
-              반드시 해당 기관에 다시 확인해 주세요. 답변에 오류가 있거나
-              이의를 제기하고 싶다면{" "}
+              {t.disclaimerBefore}
               <a href="mailto:evollardevollard@gmail.com">evollardevollard@gmail.com</a>
-              으로 알려 주세요.
+              {t.disclaimerAfter}
             </p>
           )}
         </article>
